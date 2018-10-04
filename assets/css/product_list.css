@@ -1,0 +1,26 @@
+#pagination a.active{ background-color: #E13300; color: white; }
+#list{
+  width: 100%;
+}
+table {
+  width: 80%;
+  align: center;
+  border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th.sort{
+  text-decoration: underline;
+  cursor:pointer;
+}
+
+img.product_img{
+  max-width: 100px;
+}
+
+a:hover, a:visited, a:active {
+    color: blue;
+}

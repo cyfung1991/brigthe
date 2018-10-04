@@ -1,0 +1,5 @@
+{
+    "require": {
+        "yidas/codeigniter-phpunit": "^1.0"
+    }
+}
