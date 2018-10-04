@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="CodeIgniter Application Test Suite" tests="7" assertions="10" failures="0" errors="0" time="0.179230">
-    <testsuite name="Product_test" file="C:\inetpub\wwwroot\brighte\application\tests\Product_test.php" tests="4" assertions="7" failures="0" errors="0" time="0.151381">
-      <testcase name="test_index" class="Product_test" file="C:\inetpub\wwwroot\brighte\application\tests\Product_test.php" line="4" assertions="1" time="0.036543"/>
-      <testcase name="test_api_create" class="Product_test" file="C:\inetpub\wwwroot\brighte\application\tests\Product_test.php" line="11" assertions="2" time="0.030109"/>
-      <testcase name="test_api_edit" class="Product_test" file="C:\inetpub\wwwroot\brighte\application\tests\Product_test.php" line="27" assertions="2" time="0.073819"/>
-      <testcase name="test_api_delete" class="Product_test" file="C:\inetpub\wwwroot\brighte\application\tests\Product_test.php" line="44" assertions="2" time="0.010910"/>
+  <testsuite name="CodeIgniter Application Test Suite" tests="7" assertions="10" failures="0" errors="0" time="0.251713">
+    <testsuite name="Product_test" file="C:\inetpub\wwwroot\brighte\application\tests\Product_test.php" tests="4" assertions="7" failures="0" errors="0" time="0.198065">
+      <testcase name="test_index" class="Product_test" file="C:\inetpub\wwwroot\brighte\application\tests\Product_test.php" line="4" assertions="1" time="0.052228"/>
+      <testcase name="test_api_create" class="Product_test" file="C:\inetpub\wwwroot\brighte\application\tests\Product_test.php" line="11" assertions="2" time="0.038448"/>
+      <testcase name="test_api_edit" class="Product_test" file="C:\inetpub\wwwroot\brighte\application\tests\Product_test.php" line="27" assertions="2" time="0.054657"/>
+      <testcase name="test_api_delete" class="Product_test" file="C:\inetpub\wwwroot\brighte\application\tests\Product_test.php" line="44" assertions="2" time="0.052732"/>
     </testsuite>
-    <testsuite name="Welcome_test" file="C:\inetpub\wwwroot\brighte\application\tests\controllers\Welcome_test.php" tests="3" assertions="3" failures="0" errors="0" time="0.027850">
-      <testcase name="test_index" class="Welcome_test" file="C:\inetpub\wwwroot\brighte\application\tests\controllers\Welcome_test.php" line="13" assertions="1" time="0.016943"/>
-      <testcase name="test_method_404" class="Welcome_test" file="C:\inetpub\wwwroot\brighte\application\tests\controllers\Welcome_test.php" line="19" assertions="1" time="0.009890"/>
-      <testcase name="test_APPPATH" class="Welcome_test" file="C:\inetpub\wwwroot\brighte\application\tests\controllers\Welcome_test.php" line="25" assertions="1" time="0.001017"/>
+    <testsuite name="Welcome_test" file="C:\inetpub\wwwroot\brighte\application\tests\controllers\Welcome_test.php" tests="3" assertions="3" failures="0" errors="0" time="0.053648">
+      <testcase name="test_index" class="Welcome_test" file="C:\inetpub\wwwroot\brighte\application\tests\controllers\Welcome_test.php" line="13" assertions="1" time="0.018827"/>
+      <testcase name="test_method_404" class="Welcome_test" file="C:\inetpub\wwwroot\brighte\application\tests\controllers\Welcome_test.php" line="19" assertions="1" time="0.033747"/>
+      <testcase name="test_APPPATH" class="Welcome_test" file="C:\inetpub\wwwroot\brighte\application\tests\controllers\Welcome_test.php" line="25" assertions="1" time="0.001074"/>
     </testsuite>
   </testsuite>
 </testsuites>

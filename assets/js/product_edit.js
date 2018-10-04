@@ -9,7 +9,7 @@ $(document).ready(function(){
      var res = JSON.parse(response.responseText);
      var msg = (res.msg).replace(/<(?:.|\n)*?>/gm, '');
      if( res.isError === false ){
-        alert('Product created');
+        alert('Product edited');
         window.location.assign(link_product_list);
      }else{
         alert(msg);

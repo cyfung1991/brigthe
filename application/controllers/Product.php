@@ -107,7 +107,10 @@ class Product extends CI_Controller {
 		$this->form_validation->set_rules('name', 'Name', 'trim|required|min_length[4]|xss_clean');
 		$this->form_validation->set_rules('price', 'Price', 'trim|required|min_length[4]|xss_clean|greater_than[0]');
 		$this->form_validation->set_rules('desc', 'Description', 'trim|required|min_length[4]|xss_clean');
-
+		if (empty($_FILES['image']['name']))
+		{
+		    $this->form_validation->set_rules('userfile', 'Image', 'required');
+		}
 		if ($this->form_validation->run() == FALSE){
 			$return_arr['isError'] = TRUE;
 			$return_arr['msg'] = validation_errors();
@@ -152,6 +155,7 @@ class Product extends CI_Controller {
 		$this->form_validation->set_rules('name', 'Name', 'trim|required|min_length[4]|xss_clean');
 		$this->form_validation->set_rules('price', 'Price', 'trim|required|min_length[4]|xss_clean|greater_than[0]');
 		$this->form_validation->set_rules('desc', 'Description', 'trim|required|min_length[4]|xss_clean');
+
 		if ($this->form_validation->run() == FALSE){
 			$return_arr['isError'] = TRUE;
 			$return_arr['msg'] = validation_errors();
@@ -161,17 +165,11 @@ class Product extends CI_Controller {
 			$config['max_size']      = 1024;
 			$config['encrypt_name'] = TRUE;
 			$this->load->library('upload', $config);
-
-			if ( !$this->upload->do_upload('image')) {
-				$return_arr['isError'] = TRUE;
-				$return_arr['msg'] = $this->upload->display_errors();
-			}else {
-				$pic_data = $this->upload->data();
+			if (empty($_FILES['image']['name'])){
 				$data_arr = array(
 					'name' => $data['name'],
 					'price' => $data['price'],
 					'desc' => $data['desc'],
-					'pic_path' => $pic_data['file_name'],
 					'date_update' => date("Y-m-d H:i:s"),
 				);
 				// Get product id
@@ -186,6 +184,35 @@ class Product extends CI_Controller {
 
 				$return_arr['isError'] = FALSE;
 				$return_arr['msg'] = "Success";
+			}else{
+				if ( !$this->upload->do_upload('image')) {
+					$return_arr['isError'] = TRUE;
+					$r = $this->upload->do_upload('image');
+					echo "1";
+					var_dump($r);
+					$return_arr['msg'] = $this->upload->display_errors();
+				}else {
+					$pic_data = $this->upload->data();
+					$data_arr = array(
+						'name' => $data['name'],
+						'price' => $data['price'],
+						'desc' => $data['desc'],
+						'pic_path' => $pic_data['file_name'],
+						'date_update' => date("Y-m-d H:i:s"),
+					);
+					// Get product id
+					$http_ref = strtoupper($_SERVER['HTTP_REFERER']);
+					// Remove domain
+					$http_ref = str_replace(strtoupper(base_url()), "", $http_ref);
+					$http_ref = str_replace("PRODUCT/EDIT_PRODUCT", "", $http_ref);
+					$http_ref = str_replace("/", "", $http_ref);
+					$product_id = $http_ref;
+
+					$result = $this->Product_model->update_product( $data_arr, $product_id );
+
+					$return_arr['isError'] = FALSE;
+					$return_arr['msg'] = "Success";
+				}
 			}
 		}
 		echo json_encode($return_arr);

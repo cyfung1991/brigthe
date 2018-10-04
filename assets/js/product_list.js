@@ -30,7 +30,6 @@ $(document).ready(function(){
         },
         dataType: 'json',
         success: function(response){
-          console.log(response);
           if(response.isError == 0){
             // Success
             alert(response.msg);
