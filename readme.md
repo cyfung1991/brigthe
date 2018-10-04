@@ -53,3 +53,4 @@ Q4: Time taken to complete the test.
 
 Q5: Any compromises/shortcuts you made due to time considerations.
 - DB design( product_photo should be one two many to product)
+- PHPunit check api ajaxrequest without image
