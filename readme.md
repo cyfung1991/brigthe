@@ -19,7 +19,8 @@ Page:
   - Show picture, name, price, Description
 
 Test suite:
-yidas/codeigniter-phpunit ( phpunit for codeigniter )
+kenjis/ci-phpunit-test ( phpunit for codeigniter )
+Ref link: https://github.com/kenjis/ci-phpunit-test
 full support the framework codeigniter
 
 Q1: Name of your chosen PHP framework and why.
@@ -37,11 +38,18 @@ Q2: Steps needed to setup the solution and dependencies.
   6. go to http://yourhost/product
 
 Q3: Steps needed to run the test suite.
-
+  1. open "command line"(Windows: cmd)
+  2. cd to application root (eg. C:\inetpub\wwwroot\brighte\application\tests)
+  3. Must go to folde "application\tests"
+  4. run "../../vendor/bin/phpunit"
+  5. result!!
 
 Q4: Time taken to complete the test.
 - Setup(download codeigniter source) - 10mins
 - Coding(basic layout, function) - 2hrs
 - Database setup - 1hr
-- Test suite - hrs
-Total:
+- Test suite - 2hrs
+- Total:5h10m
+
+Q5: Any compromises/shortcuts you made due to time considerations.
+- DB design( product_photo should be one two many to product)

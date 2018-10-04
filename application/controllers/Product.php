@@ -100,9 +100,10 @@ class Product extends CI_Controller {
 			'isError' => TRUE,
 			'msg' => ""
 		);
-		$this->security->xss_clean($this->input->post());
+
 		$data = $this->input->post();
 		$this->load->library('form_validation');
+		$this->form_validation->set_data($data);
 		$this->form_validation->set_rules('name', 'Name', 'trim|required|min_length[4]|xss_clean');
 		$this->form_validation->set_rules('price', 'Price', 'trim|required|min_length[4]|xss_clean|greater_than[0]');
 		$this->form_validation->set_rules('desc', 'Description', 'trim|required|min_length[4]|xss_clean');
@@ -151,7 +152,6 @@ class Product extends CI_Controller {
 		$this->form_validation->set_rules('name', 'Name', 'trim|required|min_length[4]|xss_clean');
 		$this->form_validation->set_rules('price', 'Price', 'trim|required|min_length[4]|xss_clean|greater_than[0]');
 		$this->form_validation->set_rules('desc', 'Description', 'trim|required|min_length[4]|xss_clean');
-
 		if ($this->form_validation->run() == FALSE){
 			$return_arr['isError'] = TRUE;
 			$return_arr['msg'] = validation_errors();
@@ -193,19 +193,29 @@ class Product extends CI_Controller {
 
 	public function api_delete(){
 		$product_id = $this->security->xss_clean($this->input->post('product_id'));
-		$status = $this->security->xss_clean($this->input->post('$status'));
+		$status = $this->security->xss_clean($this->input->post('status'));
+		$data = $this->input->post();
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('product_id', 'Product id', 'trim|required|min_length[1]|xss_clean|greater_than[0]');
+		$this->form_validation->set_rules('status', 'Status', 'trim|required|min_length[1]|xss_clean');
+
 		$return_arr = array(
 			'isError' => TRUE,
 			'msg' => "System error(Code: 101)",
 		);
 
-		$update_arr = array(
-			'status' => $status
-		);
-		$result = $this->Product_model->update_product( $update_arr, $product_id );
-		if( $result === TRUE ){
-			$return_arr['isError'] = FALSE;
-			$return_arr['msg'] = 'Success';
+		if ($this->form_validation->run() == FALSE){
+			$return_arr['isError'] = TRUE;
+			$return_arr['msg'] = validation_errors();
+		}else{
+			$update_arr = array(
+				'status' => $status
+			);
+			$result = $this->Product_model->update_product( $update_arr, $product_id );
+			if( $result === TRUE ){
+				$return_arr['isError'] = FALSE;
+				$return_arr['msg'] = 'Success';
+			}
 		}
 		echo json_encode($return_arr);
 	}
