@@ -1,3 +1,4 @@
+# brighte
 Page:
 1. Product list page
   - product picture
@@ -43,4 +44,4 @@ Q4: Time taken to complete the test.
 - Coding(basic layout, function) - 2hrs
 - Database setup - 1hr
 - Test suite - hrs
-Total: 
+Total:
